@@ -1,0 +1,44 @@
+{
+  "identity": "book",
+  "connection": "default",
+  "defaultTemplate": "default",
+  "displayedAttribute": "",
+  "schema": true,
+  "attributes": {
+  "name": {
+    "type": "string"
+  },
+  "price": {
+    "type": "float"
+  },
+  "description": {
+    "type": "string"
+  },
+  "authors" : {
+    "model" : "author"
+  },
+  "lang": {
+    "type": "string",
+    "required": true
+  },
+  "template": {
+    "type": "string",
+    "required": true
+  },
+  "id_ref": {
+    "type": "int"
+  },
+  "createdBy": {
+    "model": "user"
+  },
+  "updatedBy": {
+    "model": "user"
+  },
+  "contributors": {
+    "collection": "user",
+    "via": "books"
+  }
+},
+  "autoCreatedAt": true,
+  "autoUpdatedAt": true
+}

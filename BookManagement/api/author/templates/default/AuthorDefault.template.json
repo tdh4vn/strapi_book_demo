@@ -1,0 +1,11 @@
+{
+  "default": {
+    "attributes": {
+      "name": {},
+      "birthday": {
+        "required": true
+      }
+    },
+    "displayedAttribute": "name"
+  }
+}

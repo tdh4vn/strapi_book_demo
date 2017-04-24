@@ -1,0 +1,17 @@
+{
+  "default": {
+    "attributes": {
+      "name": {
+        "required": true,
+        "minLength": 1,
+        "maxLength": 100
+      },
+      "price": {
+        "max": 100000,
+        "required": true
+      },
+      "description": {}
+    },
+    "displayedAttribute": "id"
+  }
+}
