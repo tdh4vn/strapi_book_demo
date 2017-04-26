@@ -1,6 +1,4 @@
 {
-  "host": "localhost",
-  "port": 1337,
   "frontendUrl": "",
   "reload": {
     "timeout": 1000,
