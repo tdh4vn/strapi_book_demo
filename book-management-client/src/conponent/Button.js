@@ -4,6 +4,17 @@ export default class Button extends React.Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.changeLoading = this.changeLoading.bind(this);
+        this.state = {
+            isLoading : false
+        }
+    }
+
+    changeLoading(loading){
+        console.log(loading);
+        this.setState({
+            isLoading : loading
+        })
     }
 
     handleClick(e){
@@ -12,10 +23,9 @@ export default class Button extends React.Component {
         }
     }
 
-
     render(){
         return(
-            <button className="form-button" onClick={this.handleClick}>{this.props.name}</button>
+            <button type="button" className="form-button" disabled={this.state.isLoading} onClick={this.handleClick}>{this.state.isLoading ? this.props.nameLoading : this.props.name}</button>
         )
     }
 }

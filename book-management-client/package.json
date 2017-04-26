@@ -3,8 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "elemental": "^0.6.1",
+    "material-ui": "^0.17.4",
+    "mui-data-table": "^0.1.5",
+    "muicss": "^0.9.15",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-bootstrap": "^0.30.10",
+    "react-bootstrap-table": "^3.2.1",
+    "react-dom": "^15.5.4",
+    "react-progress-button": "^5.0.2",
+    "react-select": "^1.0.0-rc.3",
+    "react-tap-event-plugin": "^2.0.1",
+    "request": "^2.81.0",
+    "validator": "^7.0.0"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

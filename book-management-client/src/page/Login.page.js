@@ -8,28 +8,20 @@ export default class LoginPage extends React.Component {
         this.state = {
             isLoginPage : true
         }
+        this.onLoginListener = this.onLoginListener.bind(this);
+    }
+    
+    onLoginListener(result) {
+        console.log(result)
+        if(result && this.props.onLoginListener){
+            this.props.onLoginListener(result);
+        }
     }
 
     render(){
-        /*let frm;
-        if(this.state.isLoginPage){
-            return (
-            <div className="login-page">
-                <LoginForm handleClickSignUp={(e)=> this.state.isLoginPage = false}/>
-            </div>
-            )
-           
-        } else {
-            return (
-            <div className="login-page">
-                <RegisterForm handleClickSignIn={(e)=> this.state.isLoginPage = true}/>
-            </div>
-            )
-           
-        }*/
         return (
             <div className="login-page">
-                {this.state.isLoginPage ? <LoginForm handleClickSignUp={(e)=> this.setState({isLoginPage : false})}/> : <RegisterForm handleClickSignIn={(e)=> this.setState({isLoginPage : true})}/>}
+                {this.state.isLoginPage ? <LoginForm onLoginListener={this.onLoginListener} handleClickSignUp={(e)=> this.setState({isLoginPage : false})}/> : <RegisterForm onLoginListener={this.onLoginListener} handleClickSignIn={(e)=> this.setState({isLoginPage : true})}/>}
             </div>
         )
     }
