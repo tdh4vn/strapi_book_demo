@@ -42,5 +42,32 @@ module.exports = {
                 callback(null, data)
             }
         })
+    },
+    addBook : function(token, book, callback){
+        let REGISTER_URI = APIConfig.API_URL + "book";
+        console.log(token);
+        request.post({
+            url : REGISTER_URI,
+            form : {
+                token : token,
+                name : book.name,
+                price : book.price,
+                authors : book.authors.id
+            }
+        }, 
+        (err, res, body)=>{
+            console.log(res);
+            if(err || res.statusCode == 200){
+                callback(new Error());
+            } else {
+                let jsonBody = JSON.parse(body);
+                callback(null, {
+                    name : jsonBody.name,
+                    id : jsonBody.id,
+                    price : jsonBody.price,
+                    authors : jsonBody.authors
+                })
+            }
+        })
     }
 }

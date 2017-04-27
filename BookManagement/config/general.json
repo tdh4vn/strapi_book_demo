@@ -17,7 +17,7 @@
     "populate": true
   },
   "graphql": {
-    "enabled": true,
+    "enabled": false,
     "route": "/graphql"
   }
 }

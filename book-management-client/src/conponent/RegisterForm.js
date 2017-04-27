@@ -39,6 +39,7 @@ export default class LoginForm extends React.Component {
                                 isRegisterSucess : true
                             })
                             var bodyJSON = JSON.parse(body);
+                            console.log(bodyJSON.jwt);
                             localStorage.setItem("jwt", bodyJSON.jwt);
                             localStorage.setItem("username", bodyJSON.user.username);
                             this.onLoginListener(true);

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import LoginPage from './page/Login.page';
 import BookManagementPage from './page/BookManagement.page'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
 import './App.css';
 
 class App extends Component {
@@ -8,8 +11,9 @@ class App extends Component {
     super(props);
     this.onLoginListener = this.onLoginListener.bind(this);
     this.state = {
-      page : 2
+      page : 1
     }
+    injectTapEventPlugin();
   }
 
   onLoginListener(result){
@@ -31,7 +35,9 @@ class App extends Component {
           break;
     }
     return (
-        this.state.page === 1 ? <LoginPage onLoginListener={this.onLoginListener}/> : <BookManagementPage />
+      <MuiThemeProvider>
+        {this.state.page === 1 ? <LoginPage onLoginListener={this.onLoginListener}/> : <BookManagementPage />}
+      </MuiThemeProvider>
     );
   }
 }

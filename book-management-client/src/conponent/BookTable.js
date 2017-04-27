@@ -9,11 +9,18 @@ import AddBookDialog from './dialogs/AddBookDialog';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
 
 
 const BookService = require('../services/Book.service');
 
 
+const buttonStyle = {
+    'background' : '#4CAF50',
+    'margin-right':' 10px'
+}
 
 export default class BookTable extends React.Component {
 
@@ -28,7 +35,8 @@ export default class BookTable extends React.Component {
         this.state = {
             hasData : true,
             isOpenAddBook : false,
-            isOpenEditBook : false
+            isOpenEditBook : false,
+            value : 1
         }
         this.getBooks();
     }
@@ -47,16 +55,11 @@ export default class BookTable extends React.Component {
     }
 
     addBookClicked(e){
-        this.setState({
-            isOpenAddBook : true
-        })
+        this.dialogAddBook.showDialog();
     }
 
     onDoneAddBook(book){
         console.log(book);
-        this.setState({
-            isOpenAddBook : false
-        })
     }
 
     onCancelAddBook(){
@@ -79,21 +82,19 @@ export default class BookTable extends React.Component {
         };
 
         return (
-            <div>
+            <div >
                 <Container style={{'margin-bottom' : '10px'}}>
-                    <Button color="primary" style={{'margin-right':' 10px'}} onClick={this.addBookClicked}>Add Book</Button>
-                    <Button color="primary" style={{'margin-right':' 10px'}}>Edit Book</Button>
-                    <Button color="primary" style={{'margin-right':' 10px'}}>Delete Book</Button>
+                    <RaisedButton label="Add Book" style={buttonStyle} primary={true} onClick={this.addBookClicked}/>
+                    <RaisedButton label="Edit Book" style={buttonStyle} primary={true}/>
+                    <RaisedButton label="Delete Book" style={buttonStyle} primary={true}/> 
                 </Container>
-                
                 <MuiThemeProvider>
                     {this.state.hasData ? <MuiDataTable config={config}/> : null}
                 </MuiThemeProvider>
                 <AddBookDialog 
-                    show={this.state.isOpenAddBook}
+                    ref={(ref) => this.dialogAddBook = ref}
                     onDone={this.onDoneAddBook}
                     onCancel={this.onCancelAddBook}>
-                    Here's some content for the modal
                 </AddBookDialog>
             </div>
         )

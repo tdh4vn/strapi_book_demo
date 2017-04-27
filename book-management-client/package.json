@@ -9,7 +9,7 @@
     "muicss": "^0.9.15",
     "react": "^15.5.4",
     "react-bootstrap": "^0.30.10",
-    "react-bootstrap-table": "^3.2.1",
+    "react-bootstrap-table": "^3.2.2",
     "react-dom": "^15.5.4",
     "react-progress-button": "^5.0.2",
     "react-select": "^1.0.0-rc.3",

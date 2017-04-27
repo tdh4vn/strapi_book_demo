@@ -18,7 +18,7 @@ export default class BookManagementPage extends React.Component {
 
     render(){
         return (
-            <BookTable />
+            <BookTable style={{background : 'rgb(246, 239, 241)'}}/>
         )
     }
 }
