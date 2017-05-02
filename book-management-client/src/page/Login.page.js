@@ -1,6 +1,7 @@
 import React from "react"
 import LoginForm from '../conponent/LoginForm'
 import RegisterForm from '../conponent/RegisterForm'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default class LoginPage extends React.Component {
     constructor(props){

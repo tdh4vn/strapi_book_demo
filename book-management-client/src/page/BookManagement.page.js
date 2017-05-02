@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BookTable from '../conponent/BookTable'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default class BookManagementPage extends React.Component {
     constructor(props){
@@ -18,7 +19,9 @@ export default class BookManagementPage extends React.Component {
 
     render(){
         return (
-            <BookTable style={{background : 'rgb(246, 239, 241)'}}/>
+            <MuiThemeProvider>
+                <BookTable style={{background : 'rgb(246, 239, 241)'}}/>
+            </MuiThemeProvider>
         )
     }
 }

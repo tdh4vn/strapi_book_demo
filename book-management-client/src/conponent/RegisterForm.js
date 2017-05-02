@@ -3,6 +3,7 @@ import React from "react"
 import InputText from "./InputText"
 import validator from 'validator';
 import Button  from './Button';
+import ActionCreater from '../actions/index'; 
 const UserService = require('../services/User.service')
 
 export default class LoginForm extends React.Component {
@@ -26,10 +27,10 @@ export default class LoginForm extends React.Component {
                 this.inpUsername.getText(),
                 this.inpPassword.getText(),
                 this.inpEmail.getText(),
-                (err, response, body) => {
+                (err, body) => {
                     this.btnCreate.changeLoading(false);
                     if(err){
-                        console.log(err);
+                        dispatch()
                     } else {
                         console.log(response);
                         if(response.statusCode === 200){

@@ -17,7 +17,13 @@ module.exports = {
                 email : email
             }
         }, 
-        callback)
+        (err, res, body) => {
+            if(err || res.statusCode != 200){
+                callback(new Error());
+            } else {
+                callback(null, JSON.parse(body));
+            }
+        })
     },
 
     /**
@@ -34,6 +40,12 @@ module.exports = {
                 password : password
             },   
         },
-        callback)
+        (err, res, body) => {
+            if(err || res.statusCode != 200){
+                callback(new Error());
+            } else {
+                callback(null, JSON.parse(body));
+            }
+        })
     }
 }
